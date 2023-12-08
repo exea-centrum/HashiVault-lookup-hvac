@@ -1,0 +1,10 @@
+---
+- hosts: all
+  connection: local
+  vars:
+    vault_url: https://192.168.11.200
+    vault_token: s.7JjtwBWjKrtNsP2pYbwNv9er
+    vault_secret: ansible/serverlab/production/db
+    serverlab_db: "{{ lookup('hashi_vault', 'secret={{vault_secret}} token={{vault_token}} url={{vault_url}}') }}"
+  roles:
+    - wordpress
