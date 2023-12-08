@@ -34,6 +34,12 @@ Key                  Value
 token                s.XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 token_accessor       XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 token_duration       10h
+
+
+
+################################################
+$ ansible-playbook -i hosts -l servers playbook.yml --tags "test"
+$ ansible-playbook -i hosts -l servers playbook.yml --tags "update_wp_config"
 token_renewable      true
 token_policies       ["ansible" "default"]
 identity_policies    []
