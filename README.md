@@ -9,47 +9,47 @@
 <li>  vault login  </li>
 
 # vault secrets enable -tls-skip-verify -path=ansible kv
-> 
-> vault kv put -tls-skip-verify ansible/serverlab/production/db \
->   dbusername=wp_user \
->   dbpassword=davtro123 \
->   dbhost=vault.exampe.local \
->  dbname=blog
-> 
+ 
+<li> vault kv put -tls-skip-verify ansible/serverlab/production/db \ </li>
+<li>   dbusername=wp_user \ </li>
+<li>   dbpassword=davtro123 \ </li>
+<li>   dbhost=vault.exampe.local \ </li>
+<li>   dbname=blog </li>
+<li>
 
 # $ vault kv get ansible/serverlab/production/db
-> ======= Data =======
-> Key           Value
-> ---           -----
-> dbhost        vault.exampe.local
-> dbname        blog
-> dbpassword    passwd123
-> dbusername    wp_user
+<li> ======= Data ======= </li>
+<li> Key           Value </li>
+<li> ---           ----- </li>
+<li> dbhost        vault.exampe.local </li>
+<li> dbname        blog </li>
+<li> dbpassword    DavTro123 </li>
+<li> dbusername    wp_user </li>
 
 
 # ansible.hcl
 
-> $ nano ansible.hcl
-> path "ansible/*" {
->  capabilities = [ "read", "list" ]
-> }
+<li> $ nano ansible.hcl </li>
+<li> path "ansible/*" { </li>
+<li>  capabilities = [ "read", "list" ] </li>
+<li> } </li>
 
 
 # $ vault policy write ansible ansible.hcl
-> Success! Uploaded policy: ansible
+<li> Success! Uploaded policy: ansible </li>
 
 
 # $ vault token create -policy="ansible"
-> Key                  Value
-> ---                  -----
-> token                s.XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-> token_accessor       XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-> token_duration       10h
-> token_renewable      true
-> token_policies       ["ansible" "default"]
-> identity_policies    []
-> policies             ["ansible" "default"]
+<li> Key                  Value </li>
+<li> ---                  ----- </li>
+<li> token                s.XXXXXXXXXXXXXXXXXXXXXXXXXXXXX </li>
+<li> token_accessor       XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX </li>
+<li> token_duration       10h </li>
+<li> token_renewable      true </li>
+<li> token_policies       ["ansible" "default"] </li>
+<li> identity_policies    [] </li>
+<li> policies             ["ansible" "default"] </li>
 
-
-> $ ansible-playbook -i hosts -l servers playbook.yml --tags "test"
-> $ ansible-playbook -i hosts -l servers playbook.yml --tags "update_wp_config"
+# test
+<li> $ ansible-playbook -i hosts -l servers playbook.yml --tags "test" </li>
+<li> $ ansible-playbook -i hosts -l servers playbook.yml --tags "update_wp_config" </li>
