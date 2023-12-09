@@ -1,6 +1,6 @@
 # HashiVault-lookup-hvac
 >
-vault operator unseal
+> vault operator unseal
 k8s
 kubectl exec vault-1 -- vault login hvs
 or 
