@@ -1,12 +1,12 @@
 # HashiVault-lookup-hvac
 >
 > vault operator unseal
-k8s
-kubectl exec vault-1 -- vault login hvs
-or 
-if use docker
-docker exec -it xxxxxxx /bin/sh
-vault login
+> k8s
+> kubectl exec vault-1 -- vault login hvs
+> or 
+> if use docker
+> docker exec -it xxxxxxx /bin/sh
+> vault login
 
 vault secrets enable -tls-skip-verify -path=ansible kv
 ##################################
