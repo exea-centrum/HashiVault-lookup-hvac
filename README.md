@@ -8,17 +8,17 @@
 > docker exec -it xxxxxxx /bin/sh
 > vault login
 
-vault secrets enable -tls-skip-verify -path=ansible kv
-##################################
-vault kv put -tls-skip-verify ansible/serverlab/production/db \
-   dbusername=wp_user \
-   dbpassword=davtro123 \
-   dbhost=vault.exampe.local \
-   dbname=blog
-######################################################################
+# vault secrets enable -tls-skip-verify -path=ansible kv
+> ##################################
+> vault kv put -tls-skip-verify ansible/serverlab/production/db \
+>   dbusername=wp_user \
+>   dbpassword=davtro123 \
+>   dbhost=vault.exampe.local \
+>  dbname=blog
+> ######################################################################
 
-$ vault kv get ansible/serverlab/production/db
-======= Data =======
+# $ vault kv get ansible/serverlab/production/db
+>======= Data =======
 Key           Value
 ---           -----
 dbhost        vault.exampe.local
